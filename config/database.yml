@@ -1,0 +1,15 @@
+# PostgreSQL configuration for BookstoreApp
+# Requires the 'pg' gem: gem install pg
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: agrim2025
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: bookstore_app_development
