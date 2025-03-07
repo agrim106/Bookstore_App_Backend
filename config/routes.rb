@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
       # Forgot password (password reset request)
       post '/users/forgot-password', to: 'password_resets#create', as: 'forgot_password'
+      
+      #Reset Password (password reset updations)
+      post '/users/reset-password', to: 'password_resets#update', as: 'reset_password'
     end
   end
 end

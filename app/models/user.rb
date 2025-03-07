@@ -12,4 +12,8 @@ class User < ApplicationRecord
     self.otp_expires_at = 15.minutes.from_now
     save!
   end
+  
+  def valid_otp?(otp)
+    otp == self.otp && otp_expires_at.present? && Time.current < otp_expires_at
+  end
 end
