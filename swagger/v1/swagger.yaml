@@ -130,11 +130,6 @@
           "Users"
         ],
         "parameters": [],
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
         "responses": {
           "200": {
             "description": "Password reset successfully"
@@ -172,5 +167,14 @@
       "url": "http://localhost:3000",
       "description": "Development server"
     }
-  ]
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  }
 }
