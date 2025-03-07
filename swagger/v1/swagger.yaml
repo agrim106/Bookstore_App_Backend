@@ -88,6 +88,83 @@
           }
         }
       }
+    },
+    "/api/v1/users/forgot-password": {
+      "post": {
+        "summary": "Sends OTP for password reset",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OTP sent"
+          },
+          "404": {
+            "description": "Email not found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/reset-password": {
+      "post": {
+        "summary": "Resets user password with OTP",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Password reset successfully"
+          },
+          "422": {
+            "description": "Invalid or expired OTP"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "otp": {
+                    "type": "string"
+                  },
+                  "new_password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "otp",
+                  "new_password"
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   },
   "servers": [
