@@ -13,3 +13,7 @@ default: &default
 development:
   <<: *default
   database: bookstore_app_development
+
+test:
+  <<: *default
+  database: bookstore_app_test
