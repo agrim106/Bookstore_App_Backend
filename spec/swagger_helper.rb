@@ -1,4 +1,4 @@
-require 'rails_helper'  # Add this at the top
+require 'rails_helper'
 
 RSpec.configure do |config|
   config.swagger_root = Rails.root.join('swagger').to_s
@@ -12,7 +12,16 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         { url: 'http://localhost:3000', description: 'Development server' }
-      ]
+      ],
+      components: {
+        securitySchemes: {
+          bearerAuth: {
+            type: :apiKey,
+            name: 'Authorization',
+            in: :header
+          }
+        }
+      }
     }
   }
 end
