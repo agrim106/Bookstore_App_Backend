@@ -129,6 +129,11 @@
         "tags": [
           "Users"
         ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [],
         "responses": {
           "200": {
